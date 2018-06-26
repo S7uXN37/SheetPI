@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <EditText
+        android:id="@+id/weightInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/weight_hint"
+        android:inputType="numberDecimal"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/weightButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weight_button_label" />
+
+    <EditText
+        android:id="@+id/descriptionInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/description_hint"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/amountInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/amount_hint"
+        android:inputType="numberDecimal"
+        android:singleLine="true" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radioOne"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/option_one" />
+
+        <RadioButton
+            android:id="@+id/radioTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/option_two" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/debtButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/debt_button_label" />
+
+    <TextView
+        android:id="@+id/outputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="true"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:scrollbars="vertical"
+        android:text="@string/click_prompt" />
+
+</LinearLayout>
