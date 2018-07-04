@@ -18,6 +18,7 @@ import com.google.api.services.sheets.v4.model.*;
 
 import android.Manifest;
 import android.accounts.AccountManager;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -29,6 +30,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.Html;
@@ -36,6 +38,8 @@ import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -103,6 +107,37 @@ public class MainActivity extends Activity
         mCredential = GoogleAccountCredential.usingOAuth2(
                 getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    public void showWebPage(String URL) {
+        Dialog webDialog = new Dialog(this);
+        webDialog.setCancelable(true);
+
+        final WebView webView = new WebView(this);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (Build.VERSION.SDK_INT >= 21)
+                            webView.zoomBy(0.1f);
+                    }
+                }, 1000);
+
+            }
+        });
+
+        webDialog.setContentView(webView);
+
+        webView.loadUrl(URL);
+
+        webDialog.show();
     }
 
     private class ButtonClickListener implements View.OnClickListener {
@@ -512,6 +547,14 @@ public class MainActivity extends Activity
             values.add(row);
 
             return super.appendToSheet(spreadsheetId, range, values);
+        }
+
+        @Override
+        protected void onPostExecute(@Nullable List<String> output) {
+            super.onPostExecute(output);
+
+            // Display Chart
+            mMainActivity.get().showWebPage("file:///android_asset/chart.html");
         }
     }
 
