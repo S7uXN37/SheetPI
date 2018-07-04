@@ -110,7 +110,7 @@ public class MainActivity extends Activity
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    public void showWebPage(String URL) {
+    private void showChartWebPage() {
         Dialog webDialog = new Dialog(this);
         webDialog.setCancelable(true);
 
@@ -135,7 +135,7 @@ public class MainActivity extends Activity
 
         webDialog.setContentView(webView);
 
-        webView.loadUrl(URL);
+        webView.loadUrl("file:///android_asset/chart.html");
 
         webDialog.show();
     }
@@ -554,7 +554,7 @@ public class MainActivity extends Activity
             super.onPostExecute(output);
 
             // Display Chart
-            mMainActivity.get().showWebPage("file:///android_asset/chart.html");
+            mMainActivity.get().showChartWebPage();
         }
     }
 
