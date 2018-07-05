@@ -3,13 +3,16 @@ An example project for interacting with the Google Sheets API
 
 The some are missing from the strings.xml file due to private information being stored there.
 Missing strings are:
+
+```
     debt_sheet_id
     weight_sheet_id
-
+    
     option_one
     option_two
+```
 
-In addition to the strings, there is also a chart.html file missing from the assets folder.
+In addition to the strings, there is also a `chart.html` file missing from the assets folder.
 It is used to display the weight chart.
     
 This project is meant to append certain values to a spreadsheet list. The weight spreadsheet has column A for date and column B for weight.
