@@ -14,9 +14,20 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "person"
+    productFlavors {
+        self {
+            dimension "person"
+            versionNameSuffix "-self"
+        }
+        other {
+            dimension "person"
+            versionNameSuffix "-other"
         }
     }
 }
@@ -33,4 +44,12 @@ dependencies {
         exclude group: 'org.apache.httpcomponents'
     }
 
+}
+
+tasks.whenTaskAdded { task ->
+    if(task.name.toLowerCase().contains("test"))
+    {
+        //this is what you need
+        task.enabled = false
+    }
 }

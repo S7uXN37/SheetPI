@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name" translatable="false">SheetPI</string>
+
+    <string name="click_prompt">Click a button above.</string>
+
+    <string name="progress_msg">Calling Google Sheets API …</string>
+
+    <string name="weight_hint">Weight</string>
+    <string name="weight_error">Weight invalid or empty!</string>
+    <string name="weight_button_label">Submit weight</string>
+
+    <string name="description_hint">Description</string>
+    <string name="description_error">Description empty!</string>
+    <string name="amount_hint">Amount</string>
+    <string name="amount_error">Amount invalid or empty!</string>
+    <string name="debt_button_label">Submit debt</string>
+
+    <string name="google_play_error">This app requires Google Play Services. Please install Google Play Services on your device and relaunch this app.</string>
+    <string name="empty_result_error">No results returned.</string>
+    <string name="cancelled">Request cancelled.</string>
+    <string name="exception_error" formatted="true">The following error occurred: %s</string>
+    <string name="network_error">No network connection available.</string>
+    <string name="chart_button_label">View Chart</string>
+</resources>

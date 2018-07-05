@@ -17,11 +17,28 @@
         android:inputType="numberDecimal"
         android:singleLine="true" />
 
-    <Button
-        android:id="@+id/weightButton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/weight_button_label" />
+        style="?android:attr/buttonBarStyle"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/weightButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/weight_button_label" />
+
+        <Button
+            android:id="@+id/viewChartButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/chart_button_label" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/descriptionInput"

@@ -38,6 +38,7 @@ import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -98,6 +99,13 @@ public class MainActivity extends Activity
         weightButton.setOnClickListener(new ButtonClickListener(weightButton, 0));
         debtButton.setOnClickListener(new ButtonClickListener(debtButton, 1));
 
+        findViewById(R.id.viewChartButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChartWebPage();
+            }
+        });
+
         mOutputText.setMovementMethod(new ScrollingMovementMethod());
 
         mProgress = new ProgressDialog(this);
@@ -114,19 +122,19 @@ public class MainActivity extends Activity
         Dialog webDialog = new Dialog(this);
         webDialog.setCancelable(true);
 
-        final WebView webView = new WebView(this);
+        WebView webView = new WebView(this);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
         webView.setWebViewClient(new WebViewClient(){
             @Override
-            public void onPageFinished(WebView view, String url) {
+            public void onPageFinished(final WebView view, String url) {
                 super.onPageFinished(view, url);
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         if (Build.VERSION.SDK_INT >= 21)
-                            webView.zoomBy(0.1f);
+                            view.zoomBy(0.1f);
                     }
                 }, 1000);
 
@@ -547,14 +555,6 @@ public class MainActivity extends Activity
             values.add(row);
 
             return super.appendToSheet(spreadsheetId, range, values);
-        }
-
-        @Override
-        protected void onPostExecute(@Nullable List<String> output) {
-            super.onPostExecute(output);
-
-            // Display Chart
-            mMainActivity.get().showChartWebPage();
         }
     }
 

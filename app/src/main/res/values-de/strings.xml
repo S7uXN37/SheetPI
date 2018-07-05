@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exception_error" formatted="true">Folgender Fehler trat auf: %s</string>
+    <string name="cancelled">Anfrage abgebrochen.</string>
+    <string name="click_prompt">Drück einen der Knöpfe oben.</string>
+    <string name="network_error">Keine Internetverbindung verfügbar.</string>
+    <string name="weight_error">Gewicht ungültig oder leer!</string>
+    <string name="description_error">Beschreibung leer!</string>
+    <string name="amount_error">Menge ungültig oder leer!</string>
+    <string name="google_play_error">Diese App benötigt die Google Play Dienste. Bitte installiere die Google Play Dienste auf deinem Gerät und starte diese App erneut.</string>
+    <string name="empty_result_error">Keine Resultate empfangen.</string>
+    <string name="weight_hint">Gewicht</string>
+    <string name="weight_button_label">Gewicht senden</string>
+    <string name="description_hint">Beschreibung</string>
+    <string name="amount_hint">Menge</string>
+    <string name="debt_button_label">Schulden senden</string>
+    <string name="progress_msg">Rufe Google Sheets API auf …</string>
+    <string name="chart_button_label">Diagramm anzeigent</string>
+</resources>
