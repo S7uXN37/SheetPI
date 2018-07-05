@@ -38,7 +38,6 @@ import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -47,6 +46,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -527,7 +528,9 @@ public class MainActivity extends Activity
                             ((UserRecoverableAuthIOException) mLastError).getIntent(),
                             MainActivity.REQUEST_AUTHORIZATION);
                 } else {
-                    mMainActivity.get().mOutputText.setText(String.format(mMainActivity.get().getString(R.string.exception_error), mLastError.toString()));
+                    StringWriter sw = new StringWriter();
+                    mLastError.printStackTrace(new PrintWriter(sw));
+                    mMainActivity.get().mOutputText.setText(String.format(mMainActivity.get().getString(R.string.exception_error), sw.toString()));
                     Log.e("SheetPI", "Error:", mLastError);
                 }
             } else {
