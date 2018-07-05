@@ -15,5 +15,5 @@
     <string name="amount_hint">Menge</string>
     <string name="debt_button_label">Schulden senden</string>
     <string name="progress_msg">Rufe Google Sheets API auf …</string>
-    <string name="chart_button_label">Diagramm anzeigent</string>
+    <string name="chart_button_label">Diagramm anzeigen</string>
 </resources>

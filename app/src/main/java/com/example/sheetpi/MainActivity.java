@@ -501,9 +501,11 @@ public class MainActivity extends Activity
 
                 // Highlight our data (w/ HTML)
                 @SuppressWarnings({"RegExpRedundantEscape"})
-                String highlight = "\\[\\[\".*\\\"\\]\\]";
+                String highlight1 = "\\[\\[\".*\\\"\\]\\]";
+                String highlight2 = "error";
                 String replace = "<font color='red'>$0</font>";
-                text = text.replaceAll(highlight, replace);
+                text = text.replaceAll(highlight1, replace);
+                text = text.replaceAll(highlight2, replace);
 
                 if (Build.VERSION.SDK_INT >= 24)
                     mMainActivity.get().mOutputText.setText(Html.fromHtml(text, Html.FROM_HTML_SEPARATOR_LINE_BREAK_PARAGRAPH));
