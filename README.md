@@ -43,3 +43,21 @@ By appending the current measurement on the bottom of that list, the chart in th
 
 Similarly for the debt sheet: column A is a description, column B the amount that the "Option One"-Person ows and column C the amount of debt of the "Option Two"-Person.
 New values must also be added at the bottom. Range E5:D6 is a summary of total debt and who ows who that is printed out after the submission.
+
+
+The directory structure could look like this:
+* src
+    * main
+        * (all contained in repo)
+    * other
+        * assets
+            * chart.html
+        * res
+            * values
+                * strings.xml
+    * self
+        * assets
+            * chart.html
+        * res
+            * values
+                * strings.xml
